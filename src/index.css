@@ -2,5 +2,72 @@
 @tailwind components;
 @tailwind utilities;
 
+.portal-container {
+  @apply relative min-h-screen bg-gradient-to-b from-indigo-900 to-black text-white text-center p-6 flex flex-col items-center justify-center overflow-hidden;
+}
 
+.infinity-bg {
+  @apply absolute inset-0 z-0 pointer-events-none;
+}
 
+.infinity-overlay {
+  @apply w-full h-full bg-cover opacity-20;
+  background-position: center;
+  background-size: cover;
+}
+
+.infinity-guide {
+  @apply absolute bottom-0 right-0 w-64 opacity-70;
+}
+
+.portal-content {
+  @apply relative z-10 w-full max-w-5xl;
+}
+
+.portal-title {
+  @apply text-4xl font-bold mb-6 drop-shadow;
+}
+
+.portal-subtext {
+  @apply text-xl italic mb-4;
+}
+
+.portal-button {
+  @apply bg-indigo-600 hover:bg-indigo-700 px-6 py-2 text-white font-bold rounded shadow;
+}
+
+.card-group {
+  @apply space-y-8;
+}
+
+.card-box {
+  @apply bg-white/5 p-4 rounded-xl shadow-xl;
+}
+
+.card-title {
+  @apply text-xl font-semibold mb-2;
+}
+
+.card-inner {
+  @apply flex flex-col md:flex-row items-center md:items-start gap-6;
+}
+
+.card-image {
+  @apply w-40 h-auto rounded shadow;
+}
+
+.card-texts {
+  @apply text-left;
+}
+
+.card-meaning {
+  @apply text-indigo-300 italic mb-2;
+}
+
+.card-sacred-text {
+  @apply text-indigo-200;
+}
+
+.draw-again {
+  @apply mt-8 text-sm text-indigo-300 underline hover:text-indigo-100;
+}

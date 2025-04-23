@@ -1,0 +1,107 @@
+.forest-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(ellipse at center, #0d0f1a 0%, #000000 100%);
+    color: #d9e4dd;
+    font-family: 'Caveat', cursive;
+    letter-spacing: 0.6px;
+    padding: 2rem;
+    text-align: center;
+    overflow-y: auto;
+  }
+
+  /* Smooth appear with misty dissolve */
+@keyframes mistFade {
+    0% {
+      opacity: 0;
+      transform: translateY(10px) scale(0.97);
+      filter: blur(6px);
+    }
+    50% {
+      opacity: 0.8;
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      filter: blur(0);
+    }
+  }
+  
+  .forest-line.fade-in-mist {
+    animation: mistFade 1.8s ease-out;
+  }
+  
+  /* Once all is done, gently glow and hold still */
+  .final-form {
+    animation: none !important;
+    opacity: 1;
+    filter: none;
+    transition: opacity 0.5s ease-in;
+  }
+  
+  
+  .forest-overlay {
+    background: rgba(10, 10, 10, 0.75);
+    border: 2px solid #2a2a2a;
+    box-shadow: 0 0 12px #6ee7b7;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    max-width: 700px;
+    width: 90%;
+  }
+  
+  .forest-title {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #8be9fd;
+    text-shadow: 1px 1px 6px #0ff;
+  }
+  
+  .forest-lines {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+  
+  .forest-line p {
+    margin: 0;
+    line-height: 1.6;
+  }
+  
+  .forest-it {
+    color: #c5e1a5;
+    font-size: 1.3rem;
+    font-style: italic;
+    text-shadow: 0 0 3px #88ffcc;
+  }
+  
+  .forest-en {
+    color: #a0c4ff;
+    font-size: 1.1rem;
+    font-style: normal;
+    opacity: 0.9;
+  }
+  
+  .continue-button {
+    background-color: #282c34;
+    color: #ffffff;
+    border: 2px solid #8be9fd;
+    border-radius: 12px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Caveat', cursive;
+  }
+  
+  .continue-button:hover {
+    background-color: #0f0f0f;
+    color: #88ffcc;
+    box-shadow: 0 0 10px #88ffcc;
+  }
+  

@@ -1,0 +1,77 @@
+.forest-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: radial-gradient(ellipse at center, #0a1f16 0%, #000 100%);
+    font-family: 'Georgia', serif;
+    color: #d9e5dd;
+    padding: 2rem;
+  }
+
+  .forest-line.hidden {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    filter: blur(6px);
+  }
+  
+  
+  .forest-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 1rem;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 0 20px #1d3526;
+  }
+  
+  .forest-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #b6f2d1;
+    letter-spacing: 1px;
+  }
+  
+  .forest-lines {
+    margin-top: 1rem;
+  }
+  
+  .forest-line {
+    margin-bottom: 1.5rem;
+    transition: opacity 0.6s ease-in-out;
+  }
+  
+  .forest-it {
+    font-style: italic;
+    color: #c2f1e7;
+    font-size: 1.1rem;
+  }
+  
+  .forest-en {
+    font-size: 1rem;
+    color: #a5c8bc;
+  }
+  
+  .continue-button {
+    margin-top: 2rem;
+    background-color: #1d3526;
+    color: #b6f2d1;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .continue-button:hover {
+    background-color: #295843;
+  }
+
+  .forest-line.hidden {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    filter: blur(6px);
+  }
+  
+  

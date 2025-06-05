@@ -1,20 +1,16 @@
-// api/userHash.js
+const fs = require('fs');
 const crypto = require('crypto');
 
-module.exports = (req, res) => {
-  // Vercel sets x-forwarded-for to the real client IP
-  const forwarded = req.headers['x-forwarded-for'];
-  const ip = forwarded
-    ? forwarded.split(',')[0].trim()
-    : req.connection.remoteAddress || '0.0.0.0';
+const deckPath = 'src/data/deckTarot.json';
+const deck = JSON.parse(fs.readFileSync(deckPath, 'utf8'));
 
-  const userHash = crypto
+for (const card of deck.cards) {
+  const hash = crypto
     .createHash('sha256')
-    .update(ip)
-    .digest('hex')
-    .substring(0, 16);
+    .update(card.name)
+    .digest('hex');
+  card.hash64 = hash; // 64 hex characters
+}
 
-  // cache briefly at the edge
-  res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate');
-  res.status(200).json({ userHash });
-};
+fs.writeFileSync(deckPath, JSON.stringify(deck, null, 2));
+console.log(`Updated ${deck.cards.length} cards with hash64 values.`);

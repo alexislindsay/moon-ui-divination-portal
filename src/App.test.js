@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+beforeAll(() => {
+  global.IntersectionObserver = class {
+    observe() {}
+    disconnect() {}
+  };
+});
+
+test('renders forest interlude continue button', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /Continue Your Journey/i })).toBeInTheDocument();
 });

@@ -17,7 +17,8 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
-  return `📜 Chapter ${tao.chapter} — ${tao.text}`;
+  const line = getRandomFromObject(tao);
+  return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
 function getIChingSummary(iching) {

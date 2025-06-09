@@ -101,7 +101,7 @@ export default function App() {
       </div>
 
       <div className="portal-content">
-        <h1 className="portal-title">🔮 Moon UI Divination Portal</h1>
+        <h1 className="portal-title"> Divination 🔮 Portal</h1>
 
         {cards.length === 0 ? (
           <>

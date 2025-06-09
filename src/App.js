@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import GalacticScroll from "./GalacticScroll.jsx";
+import ForestInterlude from "./data/ForestInterlude.jsx";
 import deckTarot from "./data/deckTarot.json";
 
 function getImagePath(card) {
@@ -17,11 +17,7 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
- codex/identify-issues-and-propose-tasks
-  const validKeys = Object.keys(tao).filter(k => Number(k) <= 1104);
-  const key = validKeys[Math.floor(Math.random() * validKeys.length)];
-  const line = tao[key];
- main
+  const line = getRandomFromObject(tao);
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
@@ -38,7 +34,7 @@ function getMeaning(card) {
 export default function App() {
   const [cards, setCards] = useState([]);
   const [texts, setTexts] = useState({ tao: "", iching: "", avesta: "" });
-  const [showIntro, setShowIntro] = useState(true);
+  const [showForest, setShowForest] = useState(true);
   const [userHash, setUserHash] = useState(null);
 
   useEffect(() => {
@@ -88,8 +84,8 @@ export default function App() {
 
   const labels = ["Avesta (Past)", "Tao Te Ching (Present)", "I Ching (Future)"];
 
-  return showIntro ? (
-    <GalacticScroll onComplete={() => setShowIntro(false)} />
+  return showForest ? (
+    <ForestInterlude onComplete={() => setShowForest(false)} />
   ) : (
     <div className="portal-container">
       <div className="infinity-bg">

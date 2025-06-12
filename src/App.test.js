@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
+import { act } from 'react';
 import App from './App';
 
-test('renders learn react link', () => {
+jest.useFakeTimers();
+
+test('renders portal title after intro', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  act(() => {
+    jest.runAllTimers();
+  });
+  expect(screen.getByText(/Moon UI Divination Portal/i)).toBeInTheDocument();
 });

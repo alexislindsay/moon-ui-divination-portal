@@ -1,3 +1,5 @@
+// Utility script to add a stable `hash64` field to each tarot card.
+// Run via `npm run generate-hashes` before building the app.
 const fs = require('fs');
 const crypto = require('crypto');
 

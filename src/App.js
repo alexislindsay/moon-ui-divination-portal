@@ -17,12 +17,14 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
-codex/identify-issues-and-propose-tasks
+
+  const line = getRandomFromObject(tao);
+
   const validKeys = Object.keys(tao).filter(k => Number(k) <= 1104);
   const key = validKeys[Math.floor(Math.random() * validKeys.length)];
   const line = tao[key];
-  const line = getRandomFromObject(tao);
-main
+
+
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import ForestInterlude from "./data/ForestInterlude.jsx";
+import GalacticScroll from "./GalacticScroll.jsx";
 import deckTarot from "./data/deckTarot.json";
 
 function getImagePath(card) {
@@ -17,7 +17,12 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
-  const line = getRandomFromObject(tao);
+ sxw98h-codex/identify-issues-and-propose-tasks
+  const validKeys = Object.keys(tao).filter(k => Number(k) <= 1104);
+  const key = validKeys[Math.floor(Math.random() * validKeys.length)];
+  const line = tao[key];
+  const lines = getRandomFromObject(tao);
+main
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
@@ -34,7 +39,7 @@ function getMeaning(card) {
 export default function App() {
   const [cards, setCards] = useState([]);
   const [texts, setTexts] = useState({ tao: "", iching: "", avesta: "" });
-  const [showForest, setShowForest] = useState(true);
+  const [showIntro, setShowIntro] = useState(true);
   const [userHash, setUserHash] = useState(null);
 
   useEffect(() => {
@@ -70,7 +75,7 @@ export default function App() {
     let firstCard;
     if (userHash) {
       firstCard = deckTarot.cards.find(
-        c => c.hash64.substring(0, 4) === userHash.substring(0, 4)
+        c => c.hash64 && c.hash64.substring(0, 4) === userHash.substring(0, 4)
       );
     }
 
@@ -84,8 +89,8 @@ export default function App() {
 
   const labels = ["Avesta (Past)", "Tao Te Ching (Present)", "I Ching (Future)"];
 
-  return showForest ? (
-    <ForestInterlude onComplete={() => setShowForest(false)} />
+  return showIntro ? (
+    <GalacticScroll onComplete={() => setShowIntro(false)} />
   ) : (
     <div className="portal-container">
       <div className="infinity-bg">

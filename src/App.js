@@ -17,9 +17,12 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
+codex/identify-issues-and-propose-tasks
   const validKeys = Object.keys(tao).filter(k => Number(k) <= 1104);
   const key = validKeys[Math.floor(Math.random() * validKeys.length)];
   const line = tao[key];
+  const line = getRandomFromObject(tao);
+main
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
@@ -103,7 +106,7 @@ export default function App() {
       </div>
 
       <div className="portal-content">
-        <h1 className="portal-title">🔮 Moon UI Divination Portal</h1>
+        <h1 className="portal-title"> Divination 🔮 Portal</h1>
 
         {cards.length === 0 ? (
           <>

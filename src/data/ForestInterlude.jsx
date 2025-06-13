@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import poemForest from "./poemForest.json";
-import "../ForestInterlude.css";
+import "./ForestInterlude.css";
 
 export default function ForestInterlude({ onComplete }) {
   const containerRef = useRef(null);

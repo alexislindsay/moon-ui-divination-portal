@@ -1,12 +1,13 @@
 # Moon UI Divination Portal
 
-Moon UI Divination Portal is an experimental tarot reader and text oracle built with React and Tailwind CSS.  It presents a short cosmic intro followed by a sequential three‑card draw.  Each card is paired with lines from sacred texts to inspire reflection.
+Moon UI Divination Portal is an experimental tarot reader and text oracle built with React and Tailwind CSS.  It presents a short cosmic intro followed by either a traditional three‑card draw or an unlimited reading for deeper exploration.  Each card is paired with lines from sacred texts to inspire reflection.
 
 ## Features
 
 - Animated "Galactic Scroll" intro screen.
 - Tarot cards drawn from `src/data/deckTarot.json`.
 - Quotes from the Avesta, Tao Te Ching and I Ching shown with each card.
+- Choose between a 3‑card reading or an unlimited draw for ongoing clarity.
 - Cards appear one by one on request with a floating animation.
 
 ## Getting Started
@@ -22,7 +23,7 @@ Open <http://localhost:3000> in your browser.  Use `npm run build` to create a p
 
 ## Usage
 
-Click **Reveal 3 Cards** to shuffle the deck and display the first card.  Use **Reveal Next Card** to show each remaining card in order.  When all three cards are shown you can draw another set.
+Choose **Reveal 3 Cards** for a traditional past‑present‑future spread or **Unlimited Clarity** to pull cards one after another.  Use **Reveal Next Card** to continue drawing until you are satisfied, then start a new reading whenever you wish.
 
 ## Project Structure
 

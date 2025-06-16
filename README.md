@@ -11,6 +11,7 @@ Moon UI Divination Portal is an experimental tarot reader and text oracle built 
 - Choose between a 3‑card reading or an unlimited draw for ongoing clarity,
   with a button to return to the central scroll.
 
+
 - Cards appear one by one on request with a floating animation.
 
 ## Getting Started
@@ -25,6 +26,7 @@ npm start
 Open <http://localhost:3000> in your browser.  Use `npm run build` to create a production build.
 
 ## Usage
+
 
 
 

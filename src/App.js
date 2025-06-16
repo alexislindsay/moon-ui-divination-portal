@@ -205,7 +205,10 @@ export default function App() {
           </div>
         )}
       </div>
-      <footer className="mt-12">
+
+      <footer className="mt-12 flex flex-col items-center space-y-4">
+
+     
         <a
           href="https://github.com/alexislindsay/moon-ui-divination-portal"
           className="draw-again"
@@ -214,6 +217,21 @@ export default function App() {
         >
           View source on GitHub
         </a>
+
+        <a
+          href="https://www.alexislindsay.com"
+          className="glyph-gate"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-hover="Back to the Glyph Gate"
+        >
+          <img
+            src="/TarotCards/glyphgateicon.png"
+            alt="Glyph Gate icon"
+            className="glyph-icon"
+          />
+        </a>
+
       </footer>
     </div>
   );

@@ -72,6 +72,7 @@
   @apply mt-8 text-sm text-indigo-300 underline hover:text-indigo-100;
 }
 
+
 .float-in {
   animation: floatIn 0.8s ease forwards;
   transform: translateY(20px);
@@ -91,4 +92,25 @@
 
 .next-card {
   @apply mt-4;
+}
+
+.glyph-gate {
+  @apply relative inline-block mt-4;
+}
+
+.glyph-gate::after {
+  content: attr(data-hover);
+  @apply absolute left-1/2 text-yellow-300 whitespace-nowrap pointer-events-none;
+  transform: translateX(-50%) translateY(10px);
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.glyph-gate:hover::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-10px);
+}
+
+.glyph-icon {
+  @apply w-12 h-12 mx-auto;
 }

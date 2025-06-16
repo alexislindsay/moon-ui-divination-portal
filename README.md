@@ -27,7 +27,9 @@ Open <http://localhost:3000> in your browser.  Use `npm run build` to create a p
 ## Usage
 
 
+
 Choose **Reveal 3 Cards** for a traditional past‑present‑future spread or **Unlimited Clarity** to pull cards one after another.  Use **Reveal Next Card** to continue drawing until satisfied.  In unlimited mode you can return to the choice screen any time via **Back to Central Scroll**.
+
 
 
 ## Project Structure

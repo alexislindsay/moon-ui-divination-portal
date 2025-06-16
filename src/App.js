@@ -205,6 +205,16 @@ export default function App() {
           </div>
         )}
       </div>
+      <footer className="mt-12">
+        <a
+          href="https://github.com/alexislindsay/moon-ui-divination-portal"
+          className="draw-again"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View source on GitHub
+        </a>
+      </footer>
     </div>
   );
 }

@@ -15,6 +15,10 @@ Moon UI Divination Portal is an experimental tarot reader and text oracle built 
 
 
 
+## Links
+
+View the [source on GitHub](https://github.com/alexislindsay/moon-ui-divination-portal) or visit the [Glyph Gate](https://www.alexislindsay.com).
+
 - Cards appear one by one on request with a floating animation.
 - Footer includes a link to this repository and an animated Glyph Gate icon back to alexislindsay.com.
 

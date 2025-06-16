@@ -101,6 +101,7 @@ export default function App() {
       const options = [avesta, tao, iching];
       setTexts([options[Math.floor(Math.random() * options.length)]]);
     });
+
   }
 
   function handleBackToScroll() {
@@ -108,6 +109,7 @@ export default function App() {
     setRevealed(0);
     setTexts([]);
     setMode("three");
+
   }
 
   function handleRevealNext() {
@@ -192,16 +194,22 @@ export default function App() {
                   Unlimited draw
                 </button>
               </div>
+
             )}
             {mode === "unlimited" && (
               <button className="draw-again" onClick={handleBackToScroll}>
                 Back to Central Scroll
               </button>
+
             )}
           </div>
         )}
       </div>
+
       <footer className="mt-12 flex flex-col items-center space-y-4">
+
+     
+
         <a
           href="https://github.com/alexislindsay/moon-ui-divination-portal"
           className="draw-again"
@@ -210,6 +218,8 @@ export default function App() {
         >
           View source on GitHub
         </a>
+
+
         <a
           href="https://www.alexislindsay.com"
           className="glyph-gate"
@@ -223,6 +233,7 @@ export default function App() {
             className="glyph-icon"
           />
         </a>
+
       </footer>
     </div>
   );

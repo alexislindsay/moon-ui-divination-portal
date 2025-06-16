@@ -17,14 +17,9 @@ function getAvestaLine(avesta) {
 }
 
 function getTaoLine(tao) {
-
-  const line = getRandomFromObject(tao);
-
   const validKeys = Object.keys(tao).filter(k => Number(k) <= 1104);
   const key = validKeys[Math.floor(Math.random() * validKeys.length)];
   const line = tao[key];
-
-
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
@@ -40,6 +35,7 @@ function getMeaning(card) {
 
 export default function App() {
   const [cards, setCards] = useState([]);
+  const [revealed, setRevealed] = useState(0);
   const [texts, setTexts] = useState({ tao: "", iching: "", avesta: "" });
   const [showIntro, setShowIntro] = useState(true);
   const [userHash, setUserHash] = useState(null);
@@ -86,7 +82,12 @@ export default function App() {
     const selectedCards = firstCard ? [firstCard, ...shuffled.slice(0, 2)] : shuffled.slice(0, 3);
     
     setCards(selectedCards);
+    setRevealed(1);
     getFreshTexts();
+  }
+
+  function handleRevealNext() {
+    setRevealed(r => Math.min(r + 1, cards.length));
   }
 
   const labels = ["Avesta (Past)", "Tao Te Ching (Present)", "I Ching (Future)"];
@@ -119,8 +120,8 @@ export default function App() {
           </>
         ) : (
           <div className="card-group">
-            {cards.map((card, i) => (
-              <div key={card.img || i} className="card-box">
+            {cards.slice(0, revealed).map((card, i) => (
+              <div key={card.img || i} className="card-box float-in">
                 <h2 className="card-title">{labels[i]} — {card.name}</h2>
                 <div className="card-inner">
                   <img src={getImagePath(card)} alt={card.name} className="card-image" />
@@ -131,9 +132,15 @@ export default function App() {
                 </div>
               </div>
             ))}
-            <button className="draw-again" onClick={handleDrawThree}>
-              Draw 3 new cards
-            </button>
+            {revealed < cards.length ? (
+              <button className="portal-button next-card" onClick={handleRevealNext}>
+                Reveal Next Card
+              </button>
+            ) : (
+              <button className="draw-again" onClick={handleDrawThree}>
+                Draw 3 new cards
+              </button>
+            )}
           </div>
         )}
       </div>

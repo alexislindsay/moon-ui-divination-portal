@@ -101,6 +101,7 @@ export default function App() {
       const options = [avesta, tao, iching];
       setTexts([options[Math.floor(Math.random() * options.length)]]);
     });
+
   }
 
   function handleBackToScroll() {
@@ -108,6 +109,7 @@ export default function App() {
     setRevealed(0);
     setTexts([]);
     setMode("three");
+
   }
 
   function handleRevealNext() {
@@ -192,11 +194,13 @@ export default function App() {
                   Unlimited draw
                 </button>
               </div>
+
             )}
             {mode === "unlimited" && (
               <button className="draw-again" onClick={handleBackToScroll}>
                 Back to Central Scroll
               </button>
+
             )}
           </div>
         )}

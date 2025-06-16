@@ -7,8 +7,11 @@ Moon UI Divination Portal is an experimental tarot reader and text oracle built 
 - Animated "Galactic Scroll" intro screen.
 - Tarot cards drawn from `src/data/deckTarot.json`.
 - Quotes from the Avesta, Tao Te Ching and I Ching shown with each card.
+
 - Choose between a 3‑card reading or an unlimited draw for ongoing clarity,
   with a button to return to the central scroll.
+
+
 - Cards appear one by one on request with a floating animation.
 
 ## Getting Started
@@ -24,7 +27,12 @@ Open <http://localhost:3000> in your browser.  Use `npm run build` to create a p
 
 ## Usage
 
+
+
+
 Choose **Reveal 3 Cards** for a traditional past‑present‑future spread or **Unlimited Clarity** to pull cards one after another.  Use **Reveal Next Card** to continue drawing until satisfied.  In unlimited mode you can return to the choice screen any time via **Back to Central Scroll**.
+
+
 
 ## Project Structure
 

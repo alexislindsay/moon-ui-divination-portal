@@ -111,6 +111,53 @@
   transform: translateX(-50%) translateY(-10px);
 }
 
+.glyph-gate::before {
+  content: "✨";
+  @apply absolute left-1/2 text-yellow-200 pointer-events-none;
+  top: 0;
+  transform: translate(-50%, 0) scale(0.8);
+  opacity: 0;
+  animation: fairyDust 3s ease-in-out infinite;
+}
+
 .glyph-icon {
   @apply w-12 h-12 mx-auto;
+  animation: glyphFloat 6s ease-in-out infinite, glyphShimmer 2s ease-in-out infinite;
+}
+
+@keyframes glyphFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glyphShimmer {
+  0%, 100% {
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  50% {
+    filter: drop-shadow(0 0 6px gold);
+  }
+}
+
+@keyframes fairyDust {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 0) scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -12px) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -24px) scale(1.2);
+  }
+
+.glyph-icon {
+  @apply w-12 h-12 mx-auto;
+
 }

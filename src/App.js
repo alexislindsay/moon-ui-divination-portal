@@ -209,6 +209,7 @@ export default function App() {
       <footer className="mt-12 flex flex-col items-center space-y-4">
 
      
+
         <a
           href="https://github.com/alexislindsay/moon-ui-divination-portal"
           className="draw-again"
@@ -217,6 +218,7 @@ export default function App() {
         >
           View source on GitHub
         </a>
+
 
         <a
           href="https://www.alexislindsay.com"

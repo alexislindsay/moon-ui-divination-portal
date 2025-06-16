@@ -71,3 +71,24 @@
 .draw-again {
   @apply mt-8 text-sm text-indigo-300 underline hover:text-indigo-100;
 }
+
+.float-in {
+  animation: floatIn 0.8s ease forwards;
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.next-card {
+  @apply mt-4;
+}

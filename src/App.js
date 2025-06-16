@@ -208,7 +208,11 @@ export default function App() {
 
       <footer className="mt-12 flex flex-col items-center space-y-4">
 
+
+  
+
      
+
 
         <a
           href="https://github.com/alexislindsay/moon-ui-divination-portal"

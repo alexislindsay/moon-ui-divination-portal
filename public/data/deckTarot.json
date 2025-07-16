@@ -1,0 +1,19 @@
+{
+  "cards": [
+    {
+      "name": "Ace of Cups",
+      "img": "c01.jpg",
+      "meanings": { "light": ["New beginnings in love", "Emotional fulfillment"] }
+    },
+    {
+      "name": "Two of Cups",
+      "img": "c02.jpg",
+      "meanings": { "light": ["Partnership", "Harmony"] }
+    },
+    {
+      "name": "Three of Cups",
+      "img": "c03.jpg",
+      "meanings": { "light": ["Celebration", "Friendship"] }
+    }
+  ]
+}

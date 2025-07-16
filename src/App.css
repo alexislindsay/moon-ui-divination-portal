@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(135deg, #0c0c1e 0%, #1a1a3e 50%, #2d1b69 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.portal-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  z-index: 2;
+}
+
+.infinity-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+.infinity-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.infinity-guide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+  opacity: 0.05;
+}
+
+.portal-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.portal-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #a855f7, #ec4899, #06b6d4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+  cursor: pointer;
+}
+
+.portal-subtext {
+  font-size: 1.5rem;
+  color: #e2e8f0;
+  margin-bottom: 3rem;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
+.portal-button,
+.draw-again,
+.next-card {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 50px;
+  cursor: pointer;
+  margin: 1rem;
+  box-shadow: 0 10px 30px rgba(124, 58, 237, 0.3);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.portal-button:hover,
+.draw-again:hover,
+.next-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(124, 58, 237, 0.4);
+}
+
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.card-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  perspective: 1000px;
+}
+
+.card-box:hover {
+  box-shadow: 0 30px 60px rgba(124, 58, 237, 0.2);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #a855f7;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 10px rgba(168, 85, 247, 0.5);
+  cursor: pointer;
+}
+
+.card-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.card-image {
+  width: 200px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.card-texts {
+  width: 100%;
+  text-align: left;
+}
+
+.card-meaning {
+  color: #e2e8f0;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  white-space: pre-wrap;
+  font-family: "Inter", sans-serif;
+  cursor: pointer;
+}
+
+.reveal-button {
+  background: linear-gradient(135deg, #06b6d4, #0891b2);
+  border: none;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 25px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(6, 182, 212, 0.3);
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.card-sacred-text {
+  color: #06b6d4;
+  font-size: 1rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  background: rgba(6, 182, 212, 0.1);
+  padding: 1rem;
+  border-radius: 10px;
+  border-left: 4px solid #06b6d4;
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.1);
+}
+
+/* Fractal background animation */
+.portal-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.1) 0%, transparent 50%);
+  animation: fractalPulse 8s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes fractalPulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.1);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .portal-title {
+    font-size: 2.5rem;
+  }
+
+  .card-group {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .card-box {
+    padding: 1.5rem;
+  }
+
+  .card-image {
+    width: 150px;
+    height: 260px;
+  }
+}
+
+/* Floating animation for text elements */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.portal-title:hover,
+.card-title:hover,
+.card-meaning:hover {
+  animation: float 2s ease-in-out infinite;
+}

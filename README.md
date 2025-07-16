@@ -13,10 +13,10 @@ Moon UI Divination Portal is an experimental tarot reader and text oracle built 
 
 Install dependencies and start the development server:
 
-```bash
+\`\`\`bash
 npm install
 npm start
-```
+\`\`\`
 
 Open <http://localhost:3000> in your browser.  Use `npm run build` to create a production build.
 
@@ -34,4 +34,3 @@ Click **Reveal 3 Cards** to shuffle the deck and display the first card.  Use **
 ## Contributing
 
 Pull requests are welcome.  Feel free to open an issue to discuss improvements or report problems.
-

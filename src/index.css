@@ -156,7 +156,7 @@
     opacity: 0;
     transform: translate(-50%, -24px) scale(1.2);
   }
-
+}
 
 .glyph-icon {
   @apply w-12 h-12 mx-auto;

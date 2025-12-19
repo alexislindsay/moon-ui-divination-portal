@@ -23,6 +23,15 @@ function getTaoLine(tao) {
   return `📜 Chapter ${line.chapter} — ${line.text}`;
 }
 
+function shuffleArray(array) {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 function getIChingSummary(iching) {
   const hex = getRandomFromObject(iching);
   return `💮 Hexagram — ${hex.name}\n☯️ Judgment: ${hex.judgment}\n🌬 Image: ${hex.image}`;
@@ -38,15 +47,19 @@ export default function App() {
   const [revealed, setRevealed] = useState(0);
   const [texts, setTexts] = useState([]);
   const [showIntro, setShowIntro] = useState(true);
-  const [userHash, setUserHash] = useState(null);
   const [mode, setMode] = useState("three");
 
-  useEffect(() => {
-    fetch('/api/userHash')
-      .then(r => r.json())
-      .then(data => setUserHash(data.userHash))
-      .catch(console.error);
-  }, []);
+  // Note: userHash feature requires backend API endpoint at /api/userHash
+  // Currently disabled as this is a static frontend app
+  // To enable: uncomment the code below and implement the /api/userHash endpoint
+  // const [userHash, setUserHash] = useState(null);
+  // useEffect(() => {
+  //   fetch('/api/userHash')
+  //     .then(r => r.json())
+  //     .then(data => setUserHash(data.userHash))
+  //     .catch(err => console.error('Failed to fetch user hash:', err));
+  // }, []);
+  const userHash = null; // Temporary: set to null until backend is implemented
 
   useEffect(() => {
     // load initial sacred texts for first draw
@@ -57,9 +70,21 @@ export default function App() {
 
   function fetchTextSet() {
     return Promise.all([
-      fetch("/data/avesta.json").then(res => res.json()),
-      fetch("/data/tao464.json").then(res => res.json()),
-      fetch("/data/iching.json").then(res => res.json())
+      fetch("/data/avesta.json")
+        .then(res => {
+          if (!res.ok) throw new Error(`Failed to fetch avesta.json: ${res.status}`);
+          return res.json();
+        }),
+      fetch("/data/tao464.json")
+        .then(res => {
+          if (!res.ok) throw new Error(`Failed to fetch tao464.json: ${res.status}`);
+          return res.json();
+        }),
+      fetch("/data/iching.json")
+        .then(res => {
+          if (!res.ok) throw new Error(`Failed to fetch iching.json: ${res.status}`);
+          return res.json();
+        })
     ])
       .then(([avestaData, taoData, ichingData]) => ({
         avesta: getAvestaLine(avestaData),
@@ -68,7 +93,12 @@ export default function App() {
       }))
       .catch(err => {
         console.error("Failed to load sacred texts:", err);
-        return { avesta: "", tao: "", iching: "" };
+        // Return fallback messages when data cannot be loaded
+        return {
+          avesta: "🔥 The ancient wisdom awaits...",
+          tao: "📜 The path reveals itself in time...",
+          iching: "💮 Balance shall return..."
+        };
       });
   }
 
@@ -81,9 +111,9 @@ export default function App() {
     }
 
     const remainingCards = deckTarot.cards.filter(c => c !== firstCard);
-    const shuffled = remainingCards.sort(() => 0.5 - Math.random());
+    const shuffled = shuffleArray(remainingCards);
     const selectedCards = firstCard ? [firstCard, ...shuffled.slice(0, 2)] : shuffled.slice(0, 3);
-    
+
     setCards(selectedCards);
     setRevealed(1);
     setMode("three");
@@ -93,7 +123,7 @@ export default function App() {
   }
 
   function handleDrawUnlimited() {
-    const shuffled = [...deckTarot.cards].sort(() => 0.5 - Math.random());
+    const shuffled = shuffleArray(deckTarot.cards);
     setCards(shuffled);
     setRevealed(1);
     setMode("unlimited");
